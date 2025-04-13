@@ -5,6 +5,10 @@ The following was discovered as part of building this project:
 
 # Getting Started
 
+* [Esse projeto foi criando utilizando arquitetura clean arch](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+
+O projeto foi dividido em modulos onde domain, application, infrastructure e interface
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 
