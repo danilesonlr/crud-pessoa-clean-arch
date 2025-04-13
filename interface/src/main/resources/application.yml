@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: crud-pessoa-clean-arch
+  main:
+    allow-circular-references: true
+  springdoc:
+    packages-to-scan: br.com.pessoa.controller
