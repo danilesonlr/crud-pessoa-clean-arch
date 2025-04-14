@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" version="26.2.9">
+  <diagram name="Página-1" id="4eShF4OCgxA2LF64T6A8">
+    <mxGraphModel dx="3207" dy="2481" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-21" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="-409" y="-290" width="1430" height="1430" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-17" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="-237" y="-115" width="1102.5" height="1102.5" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-15" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry y="100" width="670" height="670" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="260" y="270" width="300" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-2" value="Pessoa.java" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-3" value="PessoaDomainRepository" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="430" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-5" value="DOMAIN" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="380" y="280" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-6" value="APPLICATION" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="270" y="180" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="caYM2Cbyv7QhwFhTQOF3-7" target="caYM2Cbyv7QhwFhTQOF3-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-7" value="CadastrarPessoaUseCase" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="340" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="caYM2Cbyv7QhwFhTQOF3-8" target="caYM2Cbyv7QhwFhTQOF3-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-8" value="AlterarPessoaUseCase" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="440" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-13" value="PessoaRepository&lt;br&gt;(JPA, configurações do Spring )" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-182" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.463;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="caYM2Cbyv7QhwFhTQOF3-13" target="caYM2Cbyv7QhwFhTQOF3-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-18" value="INFRASTRUCTURE" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="266.25" y="-60" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-19" value="Controller&lt;br&gt;(REST)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-400" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.485;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="caYM2Cbyv7QhwFhTQOF3-19" target="caYM2Cbyv7QhwFhTQOF3-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="caYM2Cbyv7QhwFhTQOF3-22" value="INTERFACE" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="-210" width="130" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
