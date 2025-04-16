@@ -11,6 +11,7 @@ public class Pessoa {
     private String cpf;
     private LocalDate dataNascimento;
     private String telefone;
+    private Endereco endereco;
 
     public Pessoa(){}
 
@@ -33,56 +34,51 @@ public class Pessoa {
         return Period.between(dataNascimento, LocalDate.now()).getYears() >= 18;
     }
 
-
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getCpf() {
         return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
 
     public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
     public String getTelefone() {
         return telefone;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Pessoa pessoa = (Pessoa) o;
-        return Objects.equals(id, pessoa.id) && Objects.equals(nome, pessoa.nome) && Objects.equals(cpf, pessoa.cpf) && Objects.equals(dataNascimento, pessoa.dataNascimento) && Objects.equals(telefone, pessoa.telefone);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nome, cpf, dataNascimento, telefone);
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 }
