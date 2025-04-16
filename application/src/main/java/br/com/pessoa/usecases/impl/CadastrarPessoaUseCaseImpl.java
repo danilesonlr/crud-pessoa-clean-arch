@@ -1,19 +1,18 @@
 package br.com.pessoa.usecases.impl;
 
-import br.com.pessoa.dto.PessoaDto;
 import br.com.pessoa.entities.Pessoa;
-import br.com.pessoa.repository.PessoaDomainRepository;
+import br.com.pessoa.gateway.PessoaDomainGateway;
+import br.com.pessoa.usecases.CadastrarPessoaUseCase;
 
-import java.util.UUID;
+public class CadastrarPessoaUseCaseImpl implements CadastrarPessoaUseCase {
+    private final PessoaDomainGateway pessoaRepository;
 
-public class CadastrarPessoaUseCase  {
-    private final PessoaDomainRepository pessoaRepository;
-
-    public CadastrarPessoaUseCase(PessoaDomainRepository pessoaRepository) {
+    public CadastrarPessoaUseCaseImpl(PessoaDomainGateway pessoaRepository) {
         this.pessoaRepository = pessoaRepository;
     }
 
-    public void execute(PessoaDto input, Void key) {
+    @Override
+    public void salvar(Pessoa input) {
         Pessoa pessoa = new Pessoa( input.getId(),
                 input.getNome(),
                 input.getCpf(),

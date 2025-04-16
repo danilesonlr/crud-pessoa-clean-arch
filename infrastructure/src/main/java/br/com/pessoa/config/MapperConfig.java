@@ -1,3 +1,4 @@
+/*
 package br.com.pessoa.config;
 
 import org.modelmapper.ModelMapper;
@@ -18,3 +19,4 @@ public class MapperConfig {
         return modelMapper;
     }
 }
+*/

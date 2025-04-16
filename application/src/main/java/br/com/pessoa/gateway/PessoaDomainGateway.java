@@ -1,11 +1,10 @@
-package br.com.pessoa.repository;
+package br.com.pessoa.gateway;
 
 import br.com.pessoa.entities.Pessoa;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface PessoaDomainRepository {
+public interface PessoaDomainGateway {
     void salvar(Pessoa pessoa);
     Pessoa buscarPorId(Long id);
     List<Pessoa> buscarTodos();

@@ -2,9 +2,9 @@ package br.com.pessoa.controller;
 
 import br.com.pessoa.dto.PessoaDto;
 import br.com.pessoa.entities.Pessoa;
-import br.com.pessoa.repository.PessoaRepositoryImpl;
-import br.com.pessoa.usecases.impl.AlterarPessoaUseCase;
-import br.com.pessoa.usecases.impl.CadastrarPessoaUseCase;
+import br.com.pessoa.mapper.PessoaDtoMapper;
+import br.com.pessoa.usecases.*;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,35 +23,38 @@ import java.util.List;
 @RequestMapping("v1")
 @RequiredArgsConstructor
 public class PessoaController {
-    private final PessoaRepositoryImpl service;
     private final CadastrarPessoaUseCase cadastrarPessoaUseCase;
     private final AlterarPessoaUseCase alterarPessoaUseCase;
+    private final BuscarPessoaUseCase buscarPessoaUseCase;
+    private final BuscarTodosPessoaUseCase buscarTodosUseCase;
+    private final DeletarPessoaUseCase detetarPessoaUseCase;
+    private final PessoaDtoMapper pessoaDtoMapper;
 
     @PostMapping("/salvar")
     @ResponseStatus(HttpStatus.CREATED)
-    public void salvarPessoa(@RequestBody PessoaDto pessoa){
-        cadastrarPessoaUseCase.execute(pessoa, null);
+    public void salvarPessoa(@RequestBody @Valid PessoaDto pessoa){
+        cadastrarPessoaUseCase.salvar(pessoaDtoMapper.toEntitie(pessoa));
     }
 
     @GetMapping("/buscar-todos")
     public List<Pessoa>  buscarTodos(){
-        return service.buscarTodos();
+        return buscarTodosUseCase.buscarTodos();
     }
 
     @GetMapping("/buscar/{idPessoa}")
     public Pessoa buscarPessoa(@PathVariable Long idPessoa){
-        return service.buscarPorId(idPessoa);
+        return buscarPessoaUseCase.buscarPorId(idPessoa);
     }
 
     @PutMapping("/alterar/{idPessoa}")
     public void alterarPessoa(@PathVariable Long idPessoa,
-                              @RequestBody PessoaDto pessoa){
-        alterarPessoaUseCase.execute(pessoa, idPessoa);
+                              @RequestBody @Valid PessoaDto pessoa){
+        alterarPessoaUseCase.alterarPessoa(pessoaDtoMapper.toEntitie(pessoa), idPessoa);
     }
 
     @DeleteMapping("/delete/{idPessoa}")
     public void deletarPesso(@PathVariable Long idPessoa){
-        service.deletarPorId(idPessoa);
+        detetarPessoaUseCase.deletarPorId(idPessoa);
     }
 
 }

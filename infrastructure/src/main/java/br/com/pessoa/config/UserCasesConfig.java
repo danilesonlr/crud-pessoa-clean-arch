@@ -1,11 +1,11 @@
 package br.com.pessoa.config;
 
-import br.com.pessoa.mapper.PessoaMapper;
-import br.com.pessoa.repository.PessoaDomainRepository;
-import br.com.pessoa.repository.PessoaRepository;
-import br.com.pessoa.repository.PessoaRepositoryImpl;
-import br.com.pessoa.usecases.impl.AlterarPessoaUseCase;
-import br.com.pessoa.usecases.impl.CadastrarPessoaUseCase;
+import br.com.pessoa.infrastructure.mapper.PessoaMapper;
+import br.com.pessoa.gateway.PessoaDomainGateway;
+import br.com.pessoa.repository.PessoaEntityRepository;
+import br.com.pessoa.service.PessoaServiceImpl;
+import br.com.pessoa.usecases.*;
+import br.com.pessoa.usecases.impl.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,18 +13,34 @@ import org.springframework.context.annotation.Configuration;
 public class UserCasesConfig {
 
     @Bean
-    public CadastrarPessoaUseCase cadastrarPessoaUseCase(PessoaDomainRepository pessoaDomainRepository) {
-        return new CadastrarPessoaUseCase(pessoaDomainRepository);
+    public PessoaServiceImpl pessoaDomainRepository(PessoaEntityRepository pessoaRepository,
+                                                    PessoaMapper pessoaMapper) {
+        return new PessoaServiceImpl(pessoaRepository, pessoaMapper);
     }
 
     @Bean
-    public AlterarPessoaUseCase alterarPessoaUseCase(PessoaDomainRepository pessoaDomainRepository) {
-        return new AlterarPessoaUseCase(pessoaDomainRepository);
+    public CadastrarPessoaUseCase cadastrarPessoaUseCase(PessoaDomainGateway pessoaDomainRepository) {
+        return new CadastrarPessoaUseCaseImpl(pessoaDomainRepository);
     }
 
     @Bean
-    public PessoaDomainRepository pessoaDomainRepository(PessoaRepository pessoaRepository,
-                                                         PessoaMapper pessoaMapper) {
-        return new PessoaRepositoryImpl(pessoaRepository, pessoaMapper);
+    public AlterarPessoaUseCase alterarPessoaUseCase(PessoaDomainGateway pessoaDomainRepository) {
+        return new AlterarPessoaUseCaseImpl(pessoaDomainRepository);
     }
+
+    @Bean
+    public BuscarPessoaUseCase buscarPessoaUseCase(PessoaDomainGateway pessoaDomainRepository) {
+        return new BuscarPessoaUseCaseImpl(pessoaDomainRepository);
+    }
+
+    @Bean
+    public BuscarTodosPessoaUseCase buscarTodosPessoaUseCase(PessoaDomainGateway pessoaDomainRepository) {
+        return new BuscarTodosPessoaUseCaseImpl(pessoaDomainRepository);
+    }
+
+    @Bean
+    public DeletarPessoaUseCase deletarPessoaUseCase(PessoaDomainGateway pessoaDomainRepository) {
+        return new DeletarPessoaUseCaseImpl(pessoaDomainRepository);
+    }
+
 }
