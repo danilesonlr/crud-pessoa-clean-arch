@@ -1,7 +1,10 @@
 package br.com.pessoa.config;
 
+import br.com.pessoa.gateway.EnderecoGateway;
+import br.com.pessoa.infrastructure.mapper.EnderecoMapper;
 import br.com.pessoa.infrastructure.mapper.PessoaMapper;
 import br.com.pessoa.gateway.PessoaDomainGateway;
+import br.com.pessoa.repository.EnderecoEntityRepository;
 import br.com.pessoa.repository.PessoaEntityRepository;
 import br.com.pessoa.service.PessoaServiceImpl;
 import br.com.pessoa.usecases.*;
@@ -13,14 +16,15 @@ import org.springframework.context.annotation.Configuration;
 public class UserCasesConfig {
 
     @Bean
-    public PessoaServiceImpl pessoaDomainRepository(PessoaEntityRepository pessoaRepository,
+    public PessoaDomainGateway pessoaDomainRepository(PessoaEntityRepository pessoaRepository,
                                                     PessoaMapper pessoaMapper) {
         return new PessoaServiceImpl(pessoaRepository, pessoaMapper);
     }
 
     @Bean
-    public CadastrarPessoaUseCase cadastrarPessoaUseCase(PessoaDomainGateway pessoaDomainRepository) {
-        return new CadastrarPessoaUseCaseImpl(pessoaDomainRepository);
+    public CadastrarPessoaUseCase cadastrarPessoaUseCase(PessoaDomainGateway pessoaDomainRepository,
+                                                         EnderecoGateway enderecoGateway) {
+        return new CadastrarPessoaUseCaseImpl(pessoaDomainRepository, enderecoGateway);
     }
 
     @Bean

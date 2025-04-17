@@ -2,6 +2,6 @@ CREATE TABLE endereco (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     cep VARCHAR(10) NOT NULL,
     logradouro VARCHAR(255) NOT NULL,
-    cidade VARCHAR(100) NOT NULL,
+    localidade VARCHAR(100) NOT NULL,
     uf VARCHAR(2) NOT NULL
 );

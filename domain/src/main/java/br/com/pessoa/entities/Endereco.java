@@ -8,7 +8,7 @@ public class Endereco {
 
     private String uf;
 
-    private String cidade;
+    private String localidade;
 
     public String getCep() {
         return cep;
@@ -34,11 +34,11 @@ public class Endereco {
         this.uf = uf;
     }
 
-    public String getCidade() {
-        return cidade;
+    public String getLocalidade() {
+        return localidade;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
+    public void setLocalidade(String cidade) {
+        this.localidade = cidade;
     }
 }

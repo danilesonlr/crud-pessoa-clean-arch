@@ -18,7 +18,7 @@ public class AlterarPessoaUseCaseImpl implements AlterarPessoaUseCase {
 
         atual.setNome(input.getNome());
         atual.setCpf(input.getCpf());
-        atual.setDataNascimento(input.getDataNascimento());
+        atual.setDateNascimento(input.getDateNascimento());
         atual.setTelefone(input.getTelefone());
         pessoaRepository.salvar(atual);
     }

@@ -1,16 +1,21 @@
 package br.com.pessoa.service;
 
 import br.com.pessoa.entities.Pessoa;
+import br.com.pessoa.entity.EnderecoEntity;
+import br.com.pessoa.entity.PessoaEntity;
+import br.com.pessoa.infrastructure.mapper.EnderecoMapper;
 import br.com.pessoa.infrastructure.mapper.PessoaMapper;
 import br.com.pessoa.gateway.PessoaDomainGateway;
+import br.com.pessoa.repository.EnderecoEntityRepository;
 import br.com.pessoa.repository.PessoaEntityRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Repository
 public class PessoaServiceImpl implements PessoaDomainGateway {
 
     private final PessoaEntityRepository pessoaRepository;
@@ -22,7 +27,9 @@ public class PessoaServiceImpl implements PessoaDomainGateway {
     }
 
     @Override
+    @Transactional
     public void salvar(Pessoa pessoa) {
+
         pessoaRepository.save(pessoaMapper.toEntity(pessoa));
     }
 

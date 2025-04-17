@@ -20,7 +20,9 @@ public class PessoaDto {
     @NotNull
     private String cpf;
     @NotNull
-    private LocalDate dataNascimento;
+    private LocalDate dateNascimento;
     @NotNull
     private String telefone;
+    @NotNull
+    private String cep;
 }

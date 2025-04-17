@@ -22,12 +22,11 @@ public class PessoaEntity {
     private String nome;
     @Column(name = "CPF")
     private String cpf;
-    @Column(name = "DATA_NACEIMENTO")
-    private LocalDate dataNascimento;
+    @Column(name = "DATA_NASCIMENTO")
+    private LocalDate dateNascimento;
     @Column(name = "TELEFONE")
     private String telefone;
-
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "endereco_id")
+    @JoinColumn(name = "ENDERECO_ID")
     private EnderecoEntity endereco;
 }

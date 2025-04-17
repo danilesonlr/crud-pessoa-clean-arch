@@ -19,11 +19,11 @@ public class EnderecoEntity {
     private Long id;
     @Column(name = "CEP")
     private String cep;
-    @Column(name = "LOUGRADOURO")
+    @Column(name = "LOGRADOURO")
     private String logradouro;
     @Column(name = "UF")
     private String uf;
-    @Column(name = "CIDADE")
-    private String cidade;
+    @Column(name = "LOCALIDADE")
+    private String localidade;
 
 }

@@ -9,25 +9,32 @@ public class Pessoa {
     private Long id;
     private String nome;
     private String cpf;
-    private LocalDate dataNascimento;
+    private LocalDate dateNascimento;
     private String telefone;
+    private String cep;
     private Endereco endereco;
 
     public Pessoa(){}
 
-    public Pessoa(Long id, String nome, String cpf, LocalDate dateNascimento, String telefone) {
-        if (nome.isBlank()) throw new IllegalArgumentException("Nome é obrigatório.");
-        if (telefone.isBlank()) throw new IllegalArgumentException("Telefone é obrigatório.");
-        if (cpf.isBlank()) throw new IllegalArgumentException("CPF é obrigatório.");
-        if (dateNascimento == null) throw new IllegalArgumentException("Data de nascimento é obrigatória.");
+    public Pessoa(Long id, String nome, String cpf, LocalDate dateNascimento, String telefone, String cep,
+                  Endereco endereco) {
+        if (nome == null || nome.isBlank()) throw new IllegalArgumentException("Nome é obrigatório.");
+        if (telefone == null || telefone.isBlank()) throw new IllegalArgumentException("Telefone é obrigatório.");
+        if (cpf == null || cpf.isBlank()) throw new IllegalArgumentException("CPF é obrigatório.");
+        if (dateNascimento == null)
+            throw new IllegalArgumentException("Data de nascimento é obrigatória.");
+        if (cep == null || cep.isBlank()) throw new IllegalArgumentException("CEP é obrigatório.");
+
 
         if (!validarIdade(dateNascimento)) throw new IllegalArgumentException("Funcionário deve ser maior de 18 anos.");
 
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
-        this.dataNascimento = dateNascimento;
+        this.dateNascimento = dateNascimento;
         this.telefone = telefone;
+        this.cep = cep;
+        this.endereco = endereco;
     }
 
     private boolean validarIdade(LocalDate dataNascimento) {
@@ -46,12 +53,16 @@ public class Pessoa {
         return cpf;
     }
 
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
+    public LocalDate getDateNascimento() {
+        return dateNascimento;
     }
 
     public String getTelefone() {
         return telefone;
+    }
+
+    public String getCep() {
+        return cep;
     }
 
     public Endereco getEndereco() {
@@ -70,12 +81,16 @@ public class Pessoa {
         this.cpf = cpf;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setDateNascimento(LocalDate dateNascimento) {
+        this.dateNascimento = dateNascimento;
     }
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
     public void setEndereco(Endereco endereco) {
