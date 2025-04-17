@@ -1,5 +1,8 @@
 package br.com.pessoa.entities;
 
+import exception.BusinessValidateException;
+import exception.enums.ErroCodeEnum;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Objects;
@@ -18,15 +21,8 @@ public class Pessoa {
 
     public Pessoa(Long id, String nome, String cpf, LocalDate dateNascimento, String telefone, String cep,
                   Endereco endereco) {
-        if (nome == null || nome.isBlank()) throw new IllegalArgumentException("Nome é obrigatório.");
-        if (telefone == null || telefone.isBlank()) throw new IllegalArgumentException("Telefone é obrigatório.");
-        if (cpf == null || cpf.isBlank()) throw new IllegalArgumentException("CPF é obrigatório.");
-        if (dateNascimento == null)
-            throw new IllegalArgumentException("Data de nascimento é obrigatória.");
-        if (cep == null || cep.isBlank()) throw new IllegalArgumentException("CEP é obrigatório.");
-
-
-        if (!validarIdade(dateNascimento)) throw new IllegalArgumentException("Funcionário deve ser maior de 18 anos.");
+        validarCamposObrigatorios(nome, cpf, dateNascimento, telefone, cep);
+        validarIdadeMinima(dateNascimento);
 
         this.id = id;
         this.nome = nome;
@@ -95,5 +91,33 @@ public class Pessoa {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    private void validarCamposObrigatorios(String nome, String cpf, LocalDate dataNascimento, String telefone, String cep) {
+        if (isBlank(nome)) {
+            throw new BusinessValidateException(ErroCodeEnum.BUS0001.getCode(), ErroCodeEnum.BUS0001.getMessage());
+        }
+        if (isBlank(telefone)) {
+            throw new BusinessValidateException(ErroCodeEnum.BUS0002.getCode(), ErroCodeEnum.BUS0002.getMessage());
+        }
+        if (isBlank(cpf)) {
+            throw new BusinessValidateException(ErroCodeEnum.BUS0003.getCode(), ErroCodeEnum.BUS0003.getMessage());
+        }
+        if (dataNascimento == null) {
+            throw new BusinessValidateException(ErroCodeEnum.BUS0004.getCode(), ErroCodeEnum.BUS0004.getMessage());
+        }
+        if (isBlank(cep)) {
+            throw new BusinessValidateException(ErroCodeEnum.BUS0005.getCode(), ErroCodeEnum.BUS0005.getMessage());
+        }
+    }
+
+    private void validarIdadeMinima(LocalDate dataNascimento) {
+        if (!validarIdade(dataNascimento)) {
+            throw new BusinessValidateException(ErroCodeEnum.BUS0006.getCode(), ErroCodeEnum.BUS0006.getMessage());
+        }
+    }
+
+    private boolean isBlank(String value) {
+        return value == null || value.isBlank();
     }
 }
