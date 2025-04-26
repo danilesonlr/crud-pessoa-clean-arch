@@ -45,6 +45,9 @@ dependencies {
     /*IMPLEMENTACAO DO JAKARTA*/
     implementation 'jakarta.servlet:jakarta.servlet-api:6.0.0'
 
+    /*IMPLEMENTACAO FYWAYDB*/
+    implementation 'org.flywaydb:flyway-core'
+
 
 }
 
