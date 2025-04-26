@@ -20,17 +20,32 @@ dependencies {
     implementation project(':application')
     implementation project(':infrastructure')
     implementation project(':domain')
+
+    /*IMPLEMENTES WEB */
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    /*IMPLEMENTES LOMBOK */
+    compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    /* TESTES JUNIT */
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    /*SWAGGER */
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.7.0'
+
+    /*MAPSTRUCT */
     implementation 'org.mapstruct:mapstruct:1.5.5.Final'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+
+    /*IMPLEMENTES PARA VALIDAÇÃO DA CONTROLER */
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    /*IMPLEMENTES FEIGN*/
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
 }
 
 dependencyManagement {

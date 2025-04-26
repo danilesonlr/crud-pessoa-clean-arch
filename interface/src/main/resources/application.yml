@@ -28,3 +28,6 @@ spring:
   flyway:
     enabled: true
     locations: classpath:migrations
+api:
+  securiy:
+    token: ${JWT_SECRET:17823648fds}
