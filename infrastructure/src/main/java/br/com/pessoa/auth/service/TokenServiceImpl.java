@@ -1,10 +1,11 @@
-package br.com.pessoa.service.security;
+package br.com.pessoa.auth.service;
 
 import br.com.pessoa.gateway.TokenGateway;
 import com.auth0.jwt.JWT;
-import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import exception.BusinessValidateException;
+import exception.enums.ErroCodeEnum;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,8 @@ public class TokenServiceImpl implements TokenGateway {
                     .withExpiresAt(genExperitaionDate()) //HORA DE ESPIRAÇÃO DO TOKEN
                     .sign(algorithm); // ALGORITIMO GERADOR DO TOKEN
         }catch (JWTCreationException e) {
-            new RuntimeException("Erro ao gerar token", e);
+            throw new BusinessValidateException(ErroCodeEnum.AUT0002.getMessage(),
+                    ErroCodeEnum.AUT0002.getCode());
         }
         return token;
     }

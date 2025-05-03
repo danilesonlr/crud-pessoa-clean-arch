@@ -12,6 +12,7 @@ public interface PessoaDtoMapper  {
     PessoaDto toDto(Pessoa entitie);
 
     @Mapping(target = "id", ignore = true) //ignorando campo ID
+    @Mapping(target = "endereco", ignore = true)
         //@Mapping(source = "name", target = "username") //e possivel mapear os campos caso seja diferentes.
     Pessoa toEntitie(PessoaDto pessoa);
 }

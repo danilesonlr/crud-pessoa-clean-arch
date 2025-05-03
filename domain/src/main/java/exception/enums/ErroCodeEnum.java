@@ -1,6 +1,9 @@
 package exception.enums;
 
 public enum ErroCodeEnum {
+    /**
+     * VALIDAÇÃO DE NEGOCIO
+     */
     BUS0001("Nome é obrigatório.","BUS-0001"),
     BUS0002("Telefone é obrigatório.","BUS-0002"),
     BUS0003("CPF é obrigatório.","BUS-0003"),
@@ -8,12 +11,19 @@ public enum ErroCodeEnum {
     BUS0005("CEP é obrigatório.","BUS-0005"),
     BUS0006("Funcionário deve ser maior de 18 anos.","BUS-0006"),
 
-
+    /**
+     * VALIDAÇÃO DE CASOS DE USO
+     */
     UC0001("Endereço não encontrado.","UC-0001"),
     UC0002("Erro ao buscar endereço.","UC-0002") ,
 
-    INF0001("Falha na validação dos campos.", "INF0001");
 
+
+    /**
+     * VALIDAÇÃO DE AUTENTICAÇÃO
+     */
+    AUT0001("Usuário já existente", "AUT-0001"),
+    AUT0002("Erro ao gerar token", "AUT-0002");
     private String message;
     private String code;
 

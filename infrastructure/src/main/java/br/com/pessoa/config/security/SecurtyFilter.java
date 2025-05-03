@@ -1,7 +1,6 @@
-package br.com.pessoa.service.security;
+package br.com.pessoa.config.security;
 
-import br.com.pessoa.entity.acesso.AcessoEntity;
-import br.com.pessoa.gateway.TokenGateway;
+import br.com.pessoa.auth.service.TokenServiceImpl;
 import br.com.pessoa.repository.AcessorEntityRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -9,7 +8,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.token.TokenService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;

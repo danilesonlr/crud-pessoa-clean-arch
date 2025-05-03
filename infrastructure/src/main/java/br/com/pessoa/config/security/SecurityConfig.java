@@ -1,22 +1,19 @@
-package br.com.pessoa.config;
+package br.com.pessoa.config.security;
 
 import br.com.pessoa.gateway.AuthenticationSecurityGateway;
 import br.com.pessoa.gateway.TokenGateway;
 import br.com.pessoa.repository.AcessorEntityRepository;
-import br.com.pessoa.service.security.AuthenticationSecurityServiceImpl;
-import br.com.pessoa.service.security.SecurtyFilter;
-import br.com.pessoa.service.security.TokenServiceImpl;
+import br.com.pessoa.auth.service.AuthenticationSecurityServiceImpl;
+import br.com.pessoa.auth.service.TokenServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.token.TokenService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -62,7 +59,7 @@ public class SecurityConfig {
                                 .requestMatchers("/js/**").permitAll()
                                 .requestMatchers("/static/**").permitAll()
                                 .requestMatchers("/assets/**").permitAll()
-
+                                //REGRA PARA SOMENTE USUARIO LOGADO COMO ADMIN PODE UTILIZAR O SERVIÇO DE SALVAR
                                 .requestMatchers(HttpMethod.POST, "/v1/salvar").hasRole("ADMIN")
                                 .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
